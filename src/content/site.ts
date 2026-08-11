@@ -1,4 +1,4 @@
-// Business facts (CLAUDE.md §1). Single-room rule (§5): KTV, Private Room, and
+// Business facts (CLAUDE.md §1). Single-room rule (§5): KTV, Exclusive Room, and
 // Content Creation are use-cases of the one room; never phrase these as
 // separate physical spaces.
 
@@ -41,8 +41,8 @@ export const SERVICES = [
   },
   {
     id: 'private-room',
-    title: 'Private Room',
-    description: 'A private space just for you and your group: birthdays, reunions, hangouts.',
+    title: 'Exclusive Room',
+    description: 'An exclusive space just for you and your group: birthdays, reunions, hangouts.',
   },
   {
     id: 'content-creation',

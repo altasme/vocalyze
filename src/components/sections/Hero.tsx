@@ -1,7 +1,8 @@
-import { Placeholder } from '@/components/ui/Placeholder'
 import { BookNowButton } from '@/components/ui/BookNowButton'
 import { SITE } from '@/content/site'
 import { trackEvent } from '@/lib/analytics'
+import heroDesktop from '@/assets/hero-desktop.jpg'
+import heroMobile from '@/assets/hero-mobile.jpg'
 
 function HeroCopy() {
   return (
@@ -10,10 +11,10 @@ function HeroCopy() {
         WHERE MOMENTS <span className="text-violet-bright">FIND THEIR VOICE.</span>
       </h1>
       <p className="mt-5 max-w-md text-lg text-text-body [text-shadow:0_1px_12px_rgba(0,0,0,0.7)]">
-        A private space to sing, create, celebrate, and connect.
+        An exclusive space to sing, create, celebrate, and connect.
       </p>
       <p className="mt-4 font-display text-sm font-semibold text-text-muted">
-        Private Room · Up to {SITE.capacity} Pax · 24/7 · Reservation Only
+        Exclusive Room · Up to {SITE.capacity} Pax · 24/7 · Reservation Only
       </p>
 
       <div className="mt-8 flex flex-wrap gap-4">
@@ -33,13 +34,14 @@ function HeroCopy() {
 export function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-bg-void">
-      {/* Desktop / tablet: full-bleed wide shot. Once the real crop lands, tune
-          object-position so the neon sign / hex fixture sit right-of-center,
-          leaving the left third emptier for the headline (same trick as
-          lean-fit's Hero: subject-to-one-side by construction, gradient does
-          the rest). */}
+      {/* Desktop / tablet: full-bleed wide shot, room content weighted right,
+          gradient darkens the left/bottom for the headline. */}
       <div className="relative hidden min-h-[620px] items-center px-4 sm:flex sm:px-6 lg:min-h-[760px]">
-        <Placeholder label="Vocalyze Lounge: hero wide shot (desktop)" fill className="z-0" />
+        <img
+          src={heroDesktop}
+          alt="Vocalyze Lounge room with signature RGB ceiling fixture and neon sign"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div
           className="pointer-events-none absolute inset-0 z-10"
           style={{
@@ -58,13 +60,13 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Mobile: full-bleed portrait shot, text sits in a gradient band. This
-          room's busiest fixture (the hex light) is at ceiling height in the
-          source photo, so the top-heavy gradient below may need to flip to a
-          bottom-anchored one depending on how the final mobile crop frames
-          the room; revisit once the real photo is in. */}
+      {/* Mobile: full-bleed portrait shot, text sits in a gradient band. */}
       <div className="relative flex min-h-[100svh] flex-col overflow-hidden px-4 pb-10 pt-14 sm:hidden">
-        <Placeholder label="Vocalyze Lounge: hero portrait shot (mobile)" fill className="z-0" />
+        <img
+          src={heroMobile}
+          alt="Vocalyze Lounge room with signature RGB ceiling fixture and neon sign"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div
           className="pointer-events-none absolute inset-0 z-10"
           style={{

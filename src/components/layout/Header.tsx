@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { NAV_LINKS } from '@/content/site'
 import { useUiStore } from '@/lib/store'
 import { BookNowButton } from '@/components/ui/BookNowButton'
+import logoWordmark from '@/assets/logo-wordmark.webp'
 
 export function Header() {
   const navOpen = useUiStore((s) => s.navOpen)
@@ -17,12 +18,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-void/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <a
-          href="#home"
-          className="font-display text-lg font-extrabold tracking-wide text-text-hi"
-          onClick={() => setNavOpen(false)}
-        >
-          VOCALYZE <span className="text-violet-bright">LOUNGE</span>
+        <a href="#home" onClick={() => setNavOpen(false)}>
+          <img src={logoWordmark} alt="Vocalyze Lounge" className="h-10 w-auto sm:h-12" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

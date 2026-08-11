@@ -8,8 +8,8 @@ web
 
 ## Users
 
-Primary user: friend groups ("barkada") in and around Rosario, Cavite booking a
-private space for a casual hangout centered on karaoke. They arrive mostly via
+Primary user: friend groups ("barkada") in and around Rosario, Cavite booking an
+exclusive space for a casual hangout centered on karaoke. They arrive mostly via
 social links (Facebook, Instagram, TikTok) on mobile. [Inferred: content
 creators booking specifically for the camera-ready setup, and small
 celebration parties (birthdays, reunions), are secondary use-cases implied by
@@ -18,18 +18,18 @@ the primary audience.]
 
 ## Product Purpose
 
-Vocalyze Lounge is a private entertainment lounge in Rosario, Cavite offering
-one private room (up to 8 pax) for karaoke, celebrations, and content
+Vocalyze Lounge is an exclusive entertainment lounge in Rosario, Cavite offering
+one exclusive room (up to 8 pax) for karaoke, celebrations, and content
 creation. The Phase 1 site's job is to turn social traffic into a booking
 action (Messenger/inquiry click). It is a marketing storefront, not a
 transactional booking system yet.
 
 ## Positioning
 
-A premium-but-playful *private* alternative to public KTV boxes: one room,
+A premium-but-playful *exclusive* alternative to public KTV boxes: one room,
 reservation only, camera-ready lighting built in. Explicitly not corporate,
 nightclub, childish, gaming, cyberpunk, or visually aggressive (CLAUDE.md
-§1). KTV, Private Room, and Content Creation are three use-cases of the same
+§1). KTV, Exclusive Room, and Content Creation are three use-cases of the same
 single room, never separate spaces (CLAUDE.md §5, hard constraint).
 
 ## Operating Context

@@ -1,15 +1,14 @@
 import { NAV_LINKS, SITE, SOCIALS } from '@/content/site'
 import { trackEvent } from '@/lib/analytics'
+import logoWordmark from '@/assets/logo-wordmark.webp'
 
 export function Footer() {
   return (
     <footer className="border-t border-border-subtle bg-bg-navy pb-24 pt-12 md:pb-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:justify-between">
         <div>
-          <p className="font-display text-lg font-extrabold tracking-wide text-text-hi">
-            VOCALYZE <span className="text-violet-bright">LOUNGE</span>
-          </p>
-          <p className="mt-1 font-script text-2xl text-pink-neon">{SITE.tagline}</p>
+          <img src={logoWordmark} alt="Vocalyze Lounge" className="h-10 w-auto" />
+          <p className="mt-2 font-script text-2xl text-pink-neon">{SITE.tagline}</p>
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2">

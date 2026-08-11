@@ -1,11 +1,16 @@
 import { useEffect } from 'react'
 import { useUiStore } from '@/lib/store'
 
-interface LightboxProps {
-  labels: string[]
+interface LightboxPhoto {
+  src: string
+  caption: string
 }
 
-export function Lightbox({ labels }: LightboxProps) {
+interface LightboxProps {
+  photos: LightboxPhoto[]
+}
+
+export function Lightbox({ photos }: LightboxProps) {
   const index = useUiStore((s) => s.lightboxIndex)
   const close = useUiStore((s) => s.closeLightbox)
   const openLightbox = useUiStore((s) => s.openLightbox)
@@ -16,21 +21,23 @@ export function Lightbox({ labels }: LightboxProps) {
     function onKeyDown(e: KeyboardEvent) {
       if (index === null) return
       if (e.key === 'Escape') close()
-      if (e.key === 'ArrowRight') openLightbox((index + 1) % labels.length)
-      if (e.key === 'ArrowLeft') openLightbox((index - 1 + labels.length) % labels.length)
+      if (e.key === 'ArrowRight') openLightbox((index + 1) % photos.length)
+      if (e.key === 'ArrowLeft') openLightbox((index - 1 + photos.length) % photos.length)
     }
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [index, close, openLightbox, labels.length])
+  }, [index, close, openLightbox, photos.length])
 
   if (index === null) return null
+
+  const photo = photos[index]
 
   return (
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={labels[index]}
+      aria-label={photo.caption}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-bg-void/95 p-4"
       onClick={close}
     >
@@ -46,13 +53,15 @@ export function Lightbox({ labels }: LightboxProps) {
       </button>
 
       <div
-        className="flex aspect-[4/3] w-full max-w-2xl flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border-subtle bg-bg-surface text-center"
+        className="flex max-h-[75vh] w-full max-w-2xl flex-col items-center gap-3"
         onClick={(e) => e.stopPropagation()}
       >
-        <span className="font-display text-xs uppercase tracking-[0.2em] text-text-muted">
-          Photo coming soon
-        </span>
-        <span className="px-6 text-sm text-text-body">{labels[index]}</span>
+        <img
+          src={photo.src}
+          alt={photo.caption}
+          className="max-h-[70vh] w-full rounded-2xl object-contain"
+        />
+        <span className="text-sm text-text-body">{photo.caption}</span>
       </div>
 
       <div className="mt-4 flex gap-4">
@@ -60,7 +69,7 @@ export function Lightbox({ labels }: LightboxProps) {
           type="button"
           onClick={(e) => {
             e.stopPropagation()
-            openLightbox((index - 1 + labels.length) % labels.length)
+            openLightbox((index - 1 + photos.length) % photos.length)
           }}
           aria-label="Previous photo"
           className="flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle text-text-hi"
@@ -71,7 +80,7 @@ export function Lightbox({ labels }: LightboxProps) {
           type="button"
           onClick={(e) => {
             e.stopPropagation()
-            openLightbox((index + 1) % labels.length)
+            openLightbox((index + 1) % photos.length)
           }}
           aria-label="Next photo"
           className="flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle text-text-hi"

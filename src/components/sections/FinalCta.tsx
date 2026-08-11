@@ -9,7 +9,7 @@ export function FinalCta() {
           READY TO FIND YOUR VOICE?
         </h2>
         <p className="mt-3 text-text-body">
-          One private room. Reservation only. Starting at ₱299.
+          One exclusive room. Reservation only. Starting at ₱299.
         </p>
         <BookNowButton label="BOOK YOUR EXPERIENCE" source="final_cta" className="mt-8" />
       </Reveal>

@@ -1,10 +1,10 @@
-# CLAUDE.md — Vocalyze Lounge
+# CLAUDE.md: Vocalyze Lounge
 
 > Build instructions for Claude Code. Single source of truth. Read fully before writing code.
 >
 > **This is a two-phase build in one repo.**
-> - **PHASE 1 — Marketing website. This is what you build now.** A high-converting, mobile-first storefront that turns social traffic into booking *actions*. No database, no booking engine, no admin.
-> - **PHASE 2 — Booking system. Documented here, built later.** The self-service booking + payment + admin platform. It's specified in this file so Phase 1 is built to hook into it **without a rebuild** — not so you build it now.
+> - **PHASE 1: Marketing website. This is what you build now.** A high-converting, mobile-first storefront that turns social traffic into booking *actions*. No database, no booking engine, no admin.
+> - **PHASE 2: Booking system. Documented here, built later.** The self-service booking + payment + admin platform. It's specified in this file so Phase 1 is built to hook into it **without a rebuild**, not so you build it now.
 >
 > **Default rule: build Phase 1 only.** Do not implement anything under `PHASE 2` unless explicitly told the phase has started. When the client MVP docs and this file disagree, this file wins.
 
@@ -14,8 +14,8 @@
 
 | Capability | Phase 1 (now) | Phase 2 (later) |
 |---|---|---|
-| Marketing site (hero, room, rates, gallery, about, location) | ✅ build | — |
-| Rates & packages **displayed** | ✅ static/config | — |
+| Marketing site (hero, room, rates, gallery, about, location) | ✅ build | n/a |
+| Rates & packages **displayed** | ✅ static/config | n/a |
 | BOOK NOW button | ✅ routes to a **temporary** destination (§4) | ↪ swaps to `/book` |
 | Rates **calculated** from inputs | ❌ | ✅ pricing engine |
 | Live availability / calendar | ❌ | ✅ |
@@ -24,7 +24,7 @@
 | Admin dashboard | ❌ | ✅ |
 | Notifications (email/SMS) | ❌ | ✅ |
 
-If a task in Phase 1 makes you reach for a database, a booking table, or an admin route — stop, it's Phase 2.
+If a task in Phase 1 makes you reach for a database, a booking table, or an admin route: stop, it's Phase 2.
 
 ---
 
@@ -34,27 +34,27 @@ If a task in Phase 1 makes you reach for a database, a booking table, or an admi
 |---|---|
 | Name | **Vocalyze Lounge** |
 | Tagline | **Where moments find their voice** (locked) |
-| What it is | Private entertainment lounge — karaoke, celebrations, content creation |
+| What it is | Exclusive entertainment lounge: karaoke, celebrations, content creation |
 | Location | Rosario, Cavite |
-| Room | **One private room, up to 8 pax** (see §5 — never imply multiple rooms) |
-| Hours | 24/7 *(confirm before launch — §3)* |
+| Room | **One exclusive room, up to 8 pax** (see §5; never imply multiple rooms) |
+| Hours | 24/7 *(confirm before launch, §3)* |
 | Phone | 0991 914 1290 |
 | Email | vocalyzelounge08@gmail.com |
 | Socials | Facebook · Instagram · TikTok (use client-provided links) |
-| Positioning | Premium private lounge with playful personality — **not** corporate, nightclub, childish, gaming, cyberpunk, or visually aggressive |
+| Positioning | Premium exclusive lounge with playful personality; **not** corporate, nightclub, childish, gaming, cyberpunk, or visually aggressive |
 
-**Services** (all in the *one* room — they are use-cases, not separate spaces): KTV · Private Room · Content Creation.
+**Services** (all in the *one* room; they are use-cases, not separate spaces): KTV · Exclusive Room · Content Creation.
 
-**Pricing (single formula — see §11 for display, §17 for the Phase 2 engine):**
+**Pricing (single formula; see §11 for display, §17 for the Phase 2 engine):**
 `total = ₱299 + ₱200 × (hours − 1) + ₱50 × hours × (pax − 2)` · base includes 1 hour / 2 pax.
 Presets: **A** ₱499 (2h/2pax) · **B** ₱1,599 (5h/4pax) · **C** ₱2,499 (6h/6pax). Add-on: **Party Mode +₱49**.
-Reservation fee: **₱500 non-refundable**; if total < ₱500, **50% of total** *(confirm rounding + wording — §3)*.
+Reservation fee: **₱500 non-refundable**; if total < ₱500, **50% of total** *(confirm rounding + wording, §3)*.
 
 ---
 
 ## 2. Stack
 
-**Phase 1 (lean — marketing site):**
+**Phase 1 (lean, marketing site):**
 
 | Layer | Choice |
 |---|---|
@@ -71,18 +71,18 @@ Standard AltaSME/Nuvratech stack. No extra libraries unless a requirement genuin
 
 ---
 
-## 3. Blocking inputs (client owes — do not fake, do not guess)
+## 3. Blocking inputs (client owes; do not fake, do not guess)
 
-| # | Input | Blocks | Phase |
-|---|---|---|---|
-| 1 | Real room/venue **photography** (hero, room, gallery) — no stock, no AI rooms (§7) | Hero, room, gallery | 1 |
-| 2 | **Logo** files + **mascot** artwork (§6.4) | Header, brand, CTAs | 1 |
-| 3 | **BOOK NOW destination** — Messenger / inquiry form / external / temp page (§4) | Every CTA | 1 |
-| 4 | Official **social links** | Header, footer, contact | 1 |
-| 5 | **Google Maps** listing approval — until then, no map/directions (§7) | Location section | 1 |
-| 6 | Confirm **24/7 hours** + **reservation-policy wording** + fee rounding | About/contact/policy copy | 1 |
-| 7 | Permission + handling for **feedback screenshots** (§7) | "Real Moments" section | 1 |
-| — | *(Phase 2 inputs — payment channels/QR, Semaphore sender, verified email domain — tracked in §16)* | | 2 |
+| # | Input | Blocks | Phase | Status |
+|---|---|---|---|---|
+| 1 | Real room/venue **photography** (hero, room, gallery); no stock, no AI rooms (§7) | Hero, room, gallery | 1 | ✅ received and wired in |
+| 2 | **Logo** files + **mascot** artwork (§6.4) | Header, brand, CTAs | 1 | ✅ logo wired in (header/footer); mascot delivered, not yet placed |
+| 3 | **BOOK NOW destination**: Messenger / inquiry form / external / temp page (§4) | Every CTA | 1 | still open (placeholder m.me link in `cta.ts`) |
+| 4 | Official **social links** | Header, footer, contact | 1 | still open |
+| 5 | **Google Maps** listing approval; until then, no map/directions (§7) | Location section | 1 | still open |
+| 6 | Confirm **24/7 hours** + **reservation-policy wording** + fee rounding | About/contact/policy copy | 1 | still open |
+| 7 | Permission + handling for **feedback screenshots** (§7) | "Real Moments" section | 1 | still open (real event photos received and wired in; no feedback screenshots used) |
+| n/a | *(Phase 2 inputs: payment channels/QR, Semaphore sender, verified email domain; tracked in §16)* | | 2 | n/a |
 
 Build around missing items with a clearly-marked placeholder; never ship a placeholder as if it were real.
 
@@ -109,13 +109,13 @@ Every `BOOK NOW`, `BOOK YOUR EXPERIENCE`, `BOOK THIS PACKAGE`, and `ADD PARTY MO
 
 ## 5. The single-room rule (copy integrity)
 
-There is **one** physical room (≤8 pax). KTV, Private Room, and Content Creation are **experiences/use-cases of that room**, not separate rooms. Do not write copy, nav, or layout that implies a customer chooses between multiple physical spaces. "Content Creation Room" = the same room used for content. Getting this wrong makes the site misleading — treat it as a hard rule.
+There is **one** physical room (≤8 pax). KTV, Exclusive Room, and Content Creation are **experiences/use-cases of that room**, not separate rooms. Do not write copy, nav, or layout that implies a customer chooses between multiple physical spaces. "Content Creation Room" = the same room used for content. Getting this wrong makes the site misleading; treat it as a hard rule.
 
 ---
 
 ## 6. Design system (shared Phase 1 + Phase 2)
 
-Client-provided identity from physical assets (logo, mascot, neon signage, room photos). Treat those as source of truth — **don't invent a different brand system.** Dark cinematic + neon, used with **restraint**: lots of dark space so the neon reads. Premium but playful (mascot carries the play; keep the rest disciplined).
+Client-provided identity from physical assets (logo, mascot, neon signage, room photos). Treat those as source of truth: **don't invent a different brand system.** Dark cinematic + neon, used with **restraint**: lots of dark space so the neon reads. Premium but playful (mascot carries the play; keep the rest disciplined).
 
 ### 6.1 Color tokens
 
@@ -138,11 +138,11 @@ Client-provided identity from physical assets (logo, mascot, neon signage, room 
 --glow:           0 0 24px rgba(224,64,251,0.40);
 ```
 
-Primary CTA = `violet-bright` fill + `--glow`. Electric blue and magenta are *accents* — spend the boldness on the hero neon, the wordmark, and the primary CTA; keep everything else quiet. No flashing, no aggressive saturation (positioning guardrail §1).
+Primary CTA = `violet-bright` fill + `--glow`. Electric blue and magenta are *accents*: spend the boldness on the hero neon, the wordmark, and the primary CTA; keep everything else quiet. No flashing, no aggressive saturation (positioning guardrail §1).
 
 ### 6.2 Typography
 
-- **Display/headings/nav/buttons/prices:** bold modern sans — **Clash Display** or **Sora** (700–800).
+- **Display/headings/nav/buttons/prices:** bold modern sans, **Clash Display** or **Sora** (700-800).
 - **Script accent (tagline + small decorative phrases only):** **Caveat** / **Sacramento**. Never body, never functional info.
 - **Body/UI:** **Inter** (400–600). `tabular-nums` on all prices and counts.
 - Scale: hero `clamp(2.5rem, 8vw, 4.5rem)` · h2 `clamp(1.75rem, 5vw, 2.5rem)` · body 1rem · caption 0.8125rem.
@@ -153,17 +153,17 @@ Subtle neon glow, soft image transitions, scroll-reveal fade-up, hover glow, but
 
 ### 6.4 Mascot
 
-Supporting character, used **strategically** — hero secondary visual, booking CTA, empty/success states, promo moments, mobile flourishes. **Never** the primary focus of a section; the real venue is the product being sold.
+Supporting character, used **strategically**: hero secondary visual, booking CTA, empty/success states, promo moments, mobile flourishes. **Never** the primary focus of a section; the real venue is the product being sold.
 
 ---
 
-# PHASE 1 — MARKETING WEBSITE (ACTIVE SCOPE)
+# PHASE 1: MARKETING WEBSITE (ACTIVE SCOPE)
 
-## 7. Launch-integrity rules (non-negotiable — these keep the site honest)
+## 7. Launch-integrity rules (non-negotiable; these keep the site honest)
 
-1. **Real photography only.** No generic stock KTV, no AI-generated rooms when real photos exist. Blocked on input #1 — use a clearly-marked placeholder until delivered.
+1. **Real photography only.** No generic stock KTV, no AI-generated rooms when real photos exist. Blocked on input #1; use a clearly-marked placeholder until delivered.
 2. **No fabricated testimonials.** Vocalyze has no formal reviews yet. "Real Vocalyze Moments" (§12.9) is **photos**, not invented quotes. Feedback screenshots only if the client confirms permission + name/photo handling (input #7).
-3. **No unverified location.** Maps listing is pending — do **not** render a map or a "Get Directions" link to an unconfirmed destination (input #5). Show text address + "directions coming soon" until approved.
+3. **No unverified location.** Maps listing is pending: do **not** render a map or a "Get Directions" link to an unconfirmed destination (input #5). Show text address + "directions coming soon" until approved.
 4. **Confirm-before-launch copy:** 24/7 hours, reservation-policy wording, fee rounding (input #6). Display as provisional, flag for sign-off.
 5. **Don't imply Phase 2 exists.** "How It Works" (§12.8) must not suggest live online availability/booking when it isn't built. Frame as "reserve through [current channel]."
 
@@ -175,14 +175,14 @@ Pages/sections: Home · Experience · Room · Rates · Gallery · About · Conta
 - **Mobile nav:** logo + hamburger + always-visible **BOOK NOW**.
 - Keep nav simple; smooth-scroll for on-page anchors. Single-page site with anchor sections is acceptable and preferred for conversion.
 
-## 9. Homepage (conversion funnel — order matters)
+## 9. Homepage (conversion funnel; order matters)
 
 Header → Hero → More Than Karaoke → The Vocalyze Room → Camera-Ready → What You Can Do (Experience) → Rates → How It Works → Real Moments → About → Location → Final CTA → Footer.
 
 ### 9.1 Hero
 - Headline: **WHERE MOMENTS FIND THEIR VOICE.**
-- Sub: *A private space to sing, create, celebrate, and connect.*
-- Meta line: **Private Room • Up to 8 Pax • 24/7 • Reservation Only.**
+- Sub: *An exclusive space to sing, create, celebrate, and connect.*
+- Meta line: **Exclusive Room • Up to 8 Pax • 24/7 • Reservation Only.**
 - Primary CTA **BOOK YOUR EXPERIENCE** · secondary **VIEW RATES**.
 - Visual: strongest real room photo/video, dark gradient overlay for text legibility. Mascot optional as secondary element.
 
@@ -190,15 +190,15 @@ Header → Hero → More Than Karaoke → The Vocalyze Room → Camera-Ready →
 Four cards reflecting Vocalyze signage: **SING · PRIVATE · CELEBRATE · CONNECT**, each one line. Mirror the existing neon sign styling.
 
 ### 9.3 The Vocalyze Room
-Headline **YOUR OWN PRIVATE SPACE.** Capacity: up to 8 pax. Lead with a **photo gallery**, not equal-weight amenity cards. Highlight top selling points: 65" Smart TV, pro karaoke system, 2 wireless mics, signature RGB lighting, spotlight stage, lounge seating, fully air-conditioned, drink chiller, parking. Full amenity list (§ below) in an expandable/secondary block.
+Headline **YOUR OWN EXCLUSIVE SPACE.** Capacity: up to 8 pax. Lead with a **photo gallery**, not equal-weight amenity cards. Highlight top selling points: 65" Smart TV, pro karaoke system, 2 wireless mics, signature RGB lighting, spotlight stage, lounge seating, fully air-conditioned, drink chiller, parking. Full amenity list (§ below) in an expandable/secondary block.
 
 **Full amenities:** air-conditioned room, 65" Smart TV, signature RGB lighting, lounge seating, sofa bed, caterpillar couches, pro karaoke system, 2 premium wireless mics, spotlight stage, drink chiller, parking, stylish CR, bidet, towel rack, color-changing LED mirror, hand dryer, free indoor slippers, pro tripod, sunglasses props.
 
 ### 9.4 Camera-Ready Experience (key differentiator)
-Headline **LOOK GOOD. SOUND GOOD. BE YOU.** Copy about TikToks/reels/photos in a private camera-ready space. Highlight RGB lighting, LED mirror, spotlight stage, tripod, sunglasses props. CTA **CREATE AT VOCALYZE**.
+Headline **LOOK GOOD. SOUND GOOD. BE YOU.** Copy about TikToks/reels/photos in an exclusive camera-ready space. Highlight RGB lighting, LED mirror, spotlight stage, tripod, sunglasses props. CTA **CREATE AT VOCALYZE**.
 
 ### 9.5 What You Can Do (Experience)
-Three services — **KTV · PRIVATE ROOM · CONTENT CREATION** — each a short line. Enforce §5 (one room, these are use-cases).
+Three services, **KTV · EXCLUSIVE ROOM · CONTENT CREATION**, each a short line. Enforce §5 (one room, these are use-cases).
 
 ### 9.6 Rates → see §11.
 
@@ -206,7 +206,7 @@ Three services — **KTV · PRIVATE ROOM · CONTENT CREATION** — each a short 
 Three steps: **01 Choose your experience · 02 Reserve your time · 03 Show up & enjoy.** Numbered because it's a genuine sequence. Must not imply live online availability (§7.5).
 
 ### 9.8 Real Moments
-Headline **REAL MOMENTS AT VOCALYZE.** Photos only — room, celebrations, karaoke, content, atmosphere. No fabricated quotes (§7.2).
+Headline **REAL MOMENTS AT VOCALYZE.** Photos only: room, celebrations, karaoke, content, atmosphere. No fabricated quotes (§7.2).
 
 ### 9.9 About
 Headline **IT STARTED WITH A LOVE FOR SINGING.** Use client's provided origin copy; close on the tagline.
@@ -227,13 +227,13 @@ Active, plain, youthful-not-corny. Buttons say what happens and keep the same ve
 
 Rates are **shown**, not computed, in Phase 1. Pull from a single `content/rates.ts` so Phase 2 can reuse the exact same source.
 
-- **Flexible base:** ₱299 — 1 hour, up to 2 guests. *+₱200 every succeeding hour · +₱50/hour per additional guest.*
+- **Flexible base:** ₱299 for 1 hour, up to 2 guests. *+₱200 every succeeding hour · +₱50/hour per additional guest.*
 - **Packages:** A ₱499 (2 guests / 2h) · B ₱1,599 (4 guests / 5h) · C ₱2,499 (6 guests / 6h). Mark **POPULAR** only if client confirms.
-- **Add-on:** Party Mode +₱49 (disco/RGB sync) — presentational button in Phase 1; real selection is Phase 2.
+- **Add-on:** Party Mode +₱49 (disco/RGB sync); presentational button in Phase 1; real selection is Phase 2.
 - **Custom:** "Need something different?" → **INQUIRE ABOUT A CUSTOM PACKAGE** → BOOK NOW channel.
 - **Reservation policy** (visible before any book attempt): strictly by reservation, no walk-ins; ₱500 non-refundable fee; <₱500 totals → 50% fee.
 
-> Note for the build: packages are the base formula pre-computed (A/B/C verify exactly against §1). Present them as convenient presets alongside the flexible base — don't describe them as a different pricing system.
+> Note for the build: packages are the base formula pre-computed (A/B/C verify exactly against §1). Present them as convenient presets alongside the flexible base; don't describe them as a different pricing system.
 
 ## 12. Mobile UX (mobile-first is the priority)
 
@@ -244,9 +244,9 @@ Rates are **shown**, not computed, in Phase 1. Pull from a single `content/rates
 
 ## 13. Analytics & SEO
 
-**Events:** page_view, cta_book_now_click, cta_view_rates_click, gallery_interaction, contact_click, social_click, directions_click. This measures customer intent and drop-off — treat as a feature.
+**Events:** page_view, cta_book_now_click, cta_view_rates_click, gallery_interaction, contact_click, social_click, directions_click. This measures customer intent and drop-off; treat as a feature.
 
-**SEO:** unique title + meta description + OG image per view, proper heading hierarchy, descriptive alt text, LocalBusiness info. Target concepts (no stuffing): Vocalyze Lounge, KTV Rosario Cavite, private karaoke Rosario Cavite, karaoke room Cavite, content creation room Cavite.
+**SEO:** unique title + meta description + OG image per view, proper heading hierarchy, descriptive alt text, LocalBusiness info. Target concepts (no stuffing): Vocalyze Lounge, KTV Rosario Cavite, exclusive karaoke Rosario Cavite, private karaoke Rosario Cavite, karaoke room Cavite, content creation room Cavite. (Site copy says "exclusive"; kept "private karaoke" as an additional SEO target too since that's still likely real search phrasing.)
 
 ## 14. Performance · accessibility · security
 
@@ -254,7 +254,7 @@ Rates are **shown**, not computed, in Phase 1. Pull from a single `content/rates
 - **A11y:** readable contrast, heading hierarchy, alt text, keyboard nav, visible focus, never color-only signaling.
 - **Security:** no secrets in frontend, env vars for keys, secure forms + basic spam protection (if form), secure external embeds.
 
-## 15. Phase 1 — exclusions & Definition of Done
+## 15. Phase 1 exclusions and Definition of Done
 
 **Excluded (all Phase 2):** booking engine, live availability, booking DB, customer accounts, admin, payments, reservation-fee collection, automated confirmations, CRM, notifications. Building any = scope creep; flag and defer.
 
@@ -271,13 +271,13 @@ Rates are **shown**, not computed, in Phase 1. Pull from a single `content/rates
 
 ---
 
-# PHASE 2 — BOOKING SYSTEM (DEFERRED — DO NOT BUILD YET)
+# PHASE 2: BOOKING SYSTEM (DEFERRED, DO NOT BUILD YET)
 
-> Specified so Phase 1 hooks in cleanly. When Phase 2 starts, the Phase 1 CTA (§4) flips to `/book` and this section becomes active scope. Reuses **Setmona** (booking engine, admin shell) and **Kolekta** (manual payment-proof loop) patterns — port them, don't rebuild.
+> Specified so Phase 1 hooks in cleanly. When Phase 2 starts, the Phase 1 CTA (§4) flips to `/book` and this section becomes active scope. Reuses **Setmona** (booking engine, admin shell) and **Kolekta** (manual payment-proof loop) patterns; port them, don't rebuild.
 
 ## 17. Pricing engine (server-side, single formula)
 
-The one formula, computed and validated in Postgres — never trusted from the client:
+The one formula, computed and validated in Postgres; never trusted from the client:
 
 ```
 total = 299 + 200 * (hours - 1) + 50 * hours * (pax - 2)      -- pax≥2, hours≥1
@@ -291,9 +291,9 @@ Packages A/B/C are presets of this formula (seed them; §1 values verify exactly
 
 ## 18. Non-negotiables (Phase 2)
 
-1. **No double booking** — enforced at DB level via a Postgres exclusion constraint (§19), never app logic alone.
-2. **Server-side pricing** — final price from §17 in Postgres; client price ignored.
-3. **Manual payment verification** — proof upload never auto-confirms.
+1. **No double booking**: enforced at DB level via a Postgres exclusion constraint (§19), never app logic alone.
+2. **Server-side pricing**: final price from §17 in Postgres; client price ignored.
+3. **Manual payment verification**: proof upload never auto-confirms.
 4. **Mobile-first, one-handed** booking flow.
 
 ## 19. Double-booking prevention
@@ -317,7 +317,7 @@ alter table bookings
 
 ## 20. Reservation RPC (all validation server-side, one transaction)
 
-`create_booking(payload) returns bookings`, in order: (1) operating hours; (2) booking window `[now+min_notice, now+window_days]`; (3) capacity `pax ≤ 8`; (4) recompute price via §17; (5) upsert customer (dedup on normalized mobile, then email); (6) insert `status='pending'`, `hold_expires_at = now()+interval '20 min'` — exclusion constraint fires here, map `exclusion_violation` → `slot_taken` ("That slot was just taken — pick another time"); (7) return booking + reference. Frontend never writes `bookings` directly (RLS blocks it).
+`create_booking(payload) returns bookings`, in order: (1) operating hours; (2) booking window `[now+min_notice, now+window_days]`; (3) capacity `pax ≤ 8`; (4) recompute price via §17; (5) upsert customer (dedup on normalized mobile, then email); (6) insert `status='pending'`, `hold_expires_at = now()+interval '20 min'`; exclusion constraint fires here, map `exclusion_violation` → `slot_taken` ("That slot was just taken. Pick another time"); (7) return booking + reference. Frontend never writes `bookings` directly (RLS blocks it).
 
 **Holds:** `pg_cron` every 5 min expires stale `pending` (no submitted proof) → releases slot. Once proof is submitted, clear/extend the hold.
 
@@ -362,7 +362,7 @@ Edge Function on status transitions, logged + idempotent: booking submitted, pay
 
 ## 25. Phase 2 build sequence (when activated)
 
-M0 foundation (Supabase schema + RLS + `btree_gist` + exclusion constraint + Auth) → M1 booking wizard (Date→Time→Guests→Duration/Package→Price→Details→Payment→Confirmation) + `get_availability`/`compute_price`/`create_booking` + hold cron → M2 admin + Kolekta payment-proof loop → M3 notifications → M4 QA (**explicitly concurrency-test the double-booking path — exactly one of two simultaneous bookings must win**) + 360px + RLS audit + deploy. Flip §4 CTA to `/book`.
+M0 foundation (Supabase schema + RLS + `btree_gist` + exclusion constraint + Auth) → M1 booking wizard (Date→Time→Guests→Duration/Package→Price→Details→Payment→Confirmation) + `get_availability`/`compute_price`/`create_booking` + hold cron → M2 admin + Kolekta payment-proof loop → M3 notifications → M4 QA (**explicitly concurrency-test the double-booking path; exactly one of two simultaneous bookings must win**) + 360px + RLS audit + deploy. Flip §4 CTA to `/book`.
 
 ---
 
@@ -370,7 +370,7 @@ M0 foundation (Supabase schema + RLS + `btree_gist` + exclusion constraint + Aut
 
 - **Build Phase 1 only** unless told otherwise. Anything needing a DB/booking table/admin route is Phase 2.
 - Route all CTAs through §4's single config; keep rates in a shared content source (§11) so Phase 2 reuses it.
-- Enforce the single-room rule (§5) and launch-integrity rules (§7) as hard constraints — a misleading site is worse than an unfinished one.
+- Enforce the single-room rule (§5) and launch-integrity rules (§7) as hard constraints; a misleading site is worse than an unfinished one.
 - Never fake photos, reviews, or a map destination. Placeholders must look like placeholders.
 - Prefer the Setmona/Kolekta patterns over novel ones when Phase 2 starts.
-- When client docs and this file conflict, this file wins — note the conflict, proceed.
+- When client docs and this file conflict, this file wins; note the conflict, proceed.

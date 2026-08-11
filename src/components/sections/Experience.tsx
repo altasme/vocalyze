@@ -10,7 +10,7 @@ export function Experience() {
             WHAT YOU CAN DO.
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-center text-text-body">
-            One private room. Three ways to use it.
+            One exclusive room. Three ways to use it.
           </p>
         </Reveal>
 

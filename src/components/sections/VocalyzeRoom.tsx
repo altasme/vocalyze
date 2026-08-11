@@ -1,7 +1,21 @@
 import { useState } from 'react'
-import { Placeholder } from '@/components/ui/Placeholder'
 import { Reveal } from '@/components/ui/Reveal'
 import { FEATURED_AMENITIES, FULL_AMENITIES, SITE } from '@/content/site'
+import room1 from '@/assets/room/1.jpg'
+import room2 from '@/assets/room/2.jpg'
+import room3 from '@/assets/room/3.jpg'
+import room4 from '@/assets/room/4.jpg'
+import room5 from '@/assets/room/5.jpg'
+import room6 from '@/assets/room/6.jpg'
+
+const ROOM_PHOTOS = [
+  { src: room1, alt: 'Karaoke TV and sound system in the Vocalyze Lounge room' },
+  { src: room2, alt: 'Wide view of the Vocalyze Lounge room with RGB ceiling fixture and neon sign' },
+  { src: room3, alt: 'Vocalyze Lounge neon sign with mic stand and seating' },
+  { src: room4, alt: 'LIVE MUSIC neon sign above the drink chiller' },
+  { src: room5, alt: 'Free indoor slippers, one of the room amenities' },
+  { src: room6, alt: 'Guest relaxing on the lounge seating' },
+]
 
 export function VocalyzeRoom() {
   const [showAll, setShowAll] = useState(false)
@@ -11,14 +25,20 @@ export function VocalyzeRoom() {
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-extrabold">
-            YOUR OWN PRIVATE SPACE.
+            YOUR OWN EXCLUSIVE SPACE.
           </h2>
           <p className="mt-2 text-text-body">Up to {SITE.capacity} guests, all to yourselves.</p>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <Placeholder key={i} label={`Room gallery photo ${i + 1}`} aspect="aspect-square" />
+          {ROOM_PHOTOS.map((photo) => (
+            <img
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              loading="lazy"
+              className="aspect-square w-full rounded-2xl border border-border-subtle object-cover"
+            />
           ))}
         </div>
 

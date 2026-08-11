@@ -2,16 +2,24 @@ import { Reveal } from '@/components/ui/Reveal'
 import { Lightbox } from '@/components/ui/Lightbox'
 import { useUiStore } from '@/lib/store'
 import { trackEvent } from '@/lib/analytics'
+import moment1 from '@/assets/real-moments/1.jpg'
+import moment2 from '@/assets/real-moments/2.jpg'
+import moment3 from '@/assets/real-moments/3.jpg'
+import moment4 from '@/assets/real-moments/4.jpg'
+import moment5 from '@/assets/real-moments/5.jpg'
+import moment6 from '@/assets/real-moments/6.jpg'
+import moment7 from '@/assets/real-moments/7.jpg'
+import moment8 from '@/assets/real-moments/8.jpg'
 
 const MOMENTS = [
-  'Karaoke night with friends',
-  'Birthday celebration',
-  'Content creation session',
-  'Group hangout',
-  'RGB lighting atmosphere',
-  'Late-night singing',
-  'Reunion celebration',
-  'Solo content shoot',
+  { src: moment1, caption: 'Friends hanging out' },
+  { src: moment2, caption: 'Karaoke night with friends' },
+  { src: moment3, caption: 'Trying on the sunglasses props' },
+  { src: moment4, caption: 'Content creation with friends' },
+  { src: moment5, caption: 'Group hangout' },
+  { src: moment6, caption: 'Late-night singing session' },
+  { src: moment7, caption: 'Solo mic time' },
+  { src: moment8, caption: 'Solo content shoot' },
 ]
 
 export function RealMoments() {
@@ -30,28 +38,30 @@ export function RealMoments() {
         </Reveal>
 
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {MOMENTS.map((label, i) => (
-            <Reveal key={label}>
+          {MOMENTS.map((moment, i) => (
+            <Reveal key={moment.src}>
               <button
                 type="button"
                 onClick={() => {
                   openLightbox(i)
-                  trackEvent('gallery_interaction', { action: 'open', item: label })
+                  trackEvent('gallery_interaction', { action: 'open', item: moment.caption })
                 }}
-                aria-label={`View photo: ${label}`}
-                className="flex aspect-square w-full flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-border-subtle bg-bg-surface/60 p-3 text-center transition-colors hover:border-violet-bright"
+                aria-label={`View photo: ${moment.caption}`}
+                className="block aspect-square w-full overflow-hidden rounded-2xl border border-border-subtle transition-colors hover:border-violet-bright"
               >
-                <span className="font-display text-xs uppercase tracking-[0.2em] text-text-muted">
-                  Coming soon
-                </span>
-                <span className="text-xs text-text-body">{label}</span>
+                <img
+                  src={moment.src}
+                  alt={moment.caption}
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
               </button>
             </Reveal>
           ))}
         </div>
       </div>
 
-      <Lightbox labels={MOMENTS} />
+      <Lightbox photos={MOMENTS} />
     </section>
   )
 }

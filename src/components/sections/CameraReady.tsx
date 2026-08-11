@@ -1,13 +1,15 @@
-import { Placeholder } from '@/components/ui/Placeholder'
 import { Reveal } from '@/components/ui/Reveal'
 import { BookNowButton } from '@/components/ui/BookNowButton'
 import { AutoplayVideo } from '@/components/ui/AutoplayVideo'
+import cameraReadyDesktop from '@/assets/camera-ready-desktop.jpg'
+import cameraReadyMobile from '@/assets/camera-ready-mobile.jpg'
 
 const HIGHLIGHTS = ['Signature RGB lighting', 'Color-changing LED mirror', 'Spotlight stage', 'Pro tripod', 'Sunglasses props']
 
 // TODO(client): drop the spotlight-sweep clip into public/media/camera-ready.mp4
 // (plus a still frame at public/media/camera-ready-poster.jpg) once delivered,
-// then set both paths below. Falls back to the placeholder until then.
+// then set both paths below to switch this section from the stills to the
+// video loop.
 const CAMERA_READY_VIDEO = {
   src: null as string | null,
   poster: null as string | null,
@@ -25,7 +27,20 @@ export function CameraReady() {
               poster={CAMERA_READY_VIDEO.poster ?? undefined}
             />
           ) : (
-            <Placeholder label="Camera-ready lighting / content creation setup" aspect="aspect-[4/5] md:aspect-[4/3]" />
+            <>
+              <img
+                src={cameraReadyMobile}
+                alt="Spotlight and mic stand in the Vocalyze Lounge content-creation corner"
+                loading="lazy"
+                className="aspect-[4/5] w-full rounded-2xl object-cover md:hidden"
+              />
+              <img
+                src={cameraReadyDesktop}
+                alt="Spotlight and mic stand in the Vocalyze Lounge content-creation corner"
+                loading="lazy"
+                className="hidden aspect-[4/3] w-full rounded-2xl object-cover md:block"
+              />
+            </>
           )}
         </Reveal>
 
@@ -34,7 +49,7 @@ export function CameraReady() {
             LOOK GOOD. SOUND GOOD. BE YOU.
           </h2>
           <p className="mt-4 max-w-md text-text-body">
-            Shoot your next TikTok, reel, or photo dump in a private, camera-ready space.
+            Shoot your next TikTok, reel, or photo dump in an exclusive, camera-ready space.
             No crowds, no rush, just good lighting and good vibes.
           </p>
 

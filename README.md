@@ -1,6 +1,6 @@
 # Vocalyze Lounge: Marketing Site (Phase 1)
 
-Mobile-first marketing site for **Vocalyze Lounge**, a private karaoke / content-creation
+Mobile-first marketing site for **Vocalyze Lounge**, an exclusive karaoke / content-creation
 lounge in Rosario, Cavite. Build rules and full spec live in [`CLAUDE.md`](./CLAUDE.md).
 Read that first.
 
