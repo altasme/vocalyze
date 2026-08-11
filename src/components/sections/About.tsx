@@ -17,7 +17,7 @@ export function About() {
           {/* TODO(client): swap in the client's provided origin-story copy (§9.9). */}
           <p className="mt-4 text-text-body">
             Vocalyze Lounge began as a simple idea: give people in {SITE.city} a private space
-            to sing, celebrate, and be themselves — no stage fright, no strangers, just the
+            to sing, celebrate, and be themselves. No stage fright, no strangers, just the
             people who matter most.
           </p>
           <p className="mt-4 font-script text-3xl text-pink-neon">{SITE.tagline}.</p>

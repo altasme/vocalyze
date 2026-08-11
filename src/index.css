@@ -18,7 +18,7 @@
   --color-pink-neon: #ff3dce;
 
   /* Same hue as violet-bright, lightened only enough to clear WCAG AA
-     (4.5:1) for small text set directly on bg-surface/bg-navy — violet-bright
+     (4.5:1) for small text set directly on bg-surface/bg-navy; violet-bright
      itself stays exactly as specified for fills, glows, and large/bold text,
      where it already passes. */
   --color-violet-link: #a968ff;

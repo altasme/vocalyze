@@ -1,5 +1,5 @@
 // Shared rates content (CLAUDE.md §11 / formula §1 & §17).
-// Phase 1 displays these values — it never lets the customer compute a
+// Phase 1 displays these values. It never lets the customer compute a
 // custom price in the UI. Phase 2's pricing engine reuses this exact file.
 
 export const RATE_FORMULA = {
@@ -14,7 +14,7 @@ export const RATE_FORMULA = {
 } as const
 
 // total = base + perExtraHour * (hours - 1) + perExtraGuestPerHour * hours * (pax - basePax)
-// Used only to keep the presets below honest against the formula — not exposed as a
+// Used only to keep the presets below honest against the formula; not exposed as a
 // customer-facing calculator in Phase 1.
 export function computeTotal(hours: number, pax: number, partyMode = false): number {
   const { base, baseHours, basePax, perExtraHour, perExtraGuestPerHour, partyModeAddOn } =
@@ -53,10 +53,10 @@ export const PARTY_MODE_ADDON = {
 }
 
 export const RESERVATION_POLICY = [
-  'Strictly by reservation — no walk-ins.',
+  'Strictly by reservation, no walk-ins.',
   `₱${RATE_FORMULA.reservationFee} non-refundable reservation fee.`,
   'Totals under ₱500 require a 50% reservation fee.',
 ]
 
-// Provisional — client to confirm exact rounding + wording (blocking input #6).
+// Provisional; client to confirm exact rounding + wording (blocking input #6).
 export const RESERVATION_POLICY_PROVISIONAL = true

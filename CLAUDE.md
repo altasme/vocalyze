@@ -221,6 +221,8 @@ Final CTA band → BOOK NOW. Footer: wordmark + tagline, quick links, phone, ema
 
 Active, plain, youthful-not-corny. Buttons say what happens and keep the same verb through a flow. Above the fold answers four questions fast: *What is Vocalyze? Why care? What's the starting price? How do I book?* Avoid corporate walls of text, competing buttons, keyword stuffing. Repeated but contextual CTAs: BOOK NOW · VIEW RATES · EXPLORE THE ROOM · CREATE AT VOCALYZE.
 
+**Hard rule: no em dashes, anywhere.** Not in UI copy, not in code comments, not in docs. Use a period, comma, colon, or semicolon instead, whichever reads most naturally for the sentence.
+
 ## 11. Rates section (DISPLAY ONLY in Phase 1)
 
 Rates are **shown**, not computed, in Phase 1. Pull from a single `content/rates.ts` so Phase 2 can reuse the exact same source.

@@ -35,7 +35,7 @@ export function HowItWorks() {
         </div>
 
         <Reveal className="mt-6 text-center text-sm text-text-muted">
-          Reserve through {CHANNEL_LABEL[BOOK_NOW.mode]} — no walk-ins, reservation only.
+          Reserve through {CHANNEL_LABEL[BOOK_NOW.mode]}. No walk-ins, reservation only.
         </Reveal>
       </div>
     </section>

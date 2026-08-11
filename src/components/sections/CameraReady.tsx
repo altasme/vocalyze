@@ -17,8 +17,8 @@ export function CameraReady() {
             LOOK GOOD. SOUND GOOD. BE YOU.
           </h2>
           <p className="mt-4 max-w-md text-text-body">
-            Shoot your next TikTok, reel, or photo dump in a private, camera-ready space —
-            no crowds, no rush, just good lighting and good vibes.
+            Shoot your next TikTok, reel, or photo dump in a private, camera-ready space.
+            No crowds, no rush, just good lighting and good vibes.
           </p>
 
           <ul className="mt-6 flex flex-wrap gap-2">

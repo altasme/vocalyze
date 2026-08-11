@@ -10,7 +10,7 @@ export function Rates() {
         <Reveal>
           <h2 className="text-center text-[clamp(1.75rem,5vw,2.5rem)] font-extrabold">RATES.</h2>
           <p className="mx-auto mt-2 max-w-xl text-center text-text-body">
-            Simple, transparent pricing — pick a package or build your own.
+            Simple, transparent pricing. Pick a package or build your own.
           </p>
         </Reveal>
 
@@ -86,7 +86,7 @@ export function Rates() {
             Reservation policy
           </p>
           {RESERVATION_POLICY_PROVISIONAL && (
-            <p className="mt-1 text-xs text-text-muted">Provisional — pending client sign-off.</p>
+            <p className="mt-1 text-xs text-text-muted">Provisional, pending client sign-off.</p>
           )}
           <ul className="mt-3 space-y-1 text-sm text-text-body">
             {RESERVATION_POLICY.map((line) => (

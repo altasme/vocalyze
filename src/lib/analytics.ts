@@ -1,5 +1,5 @@
 // Analytics events (CLAUDE.md §13). Ships as a thin wrapper around whichever
-// provider the client picks (GA4 or Plausible) — swap the implementation in
+// provider the client picks (GA4 or Plausible); swap the implementation in
 // `dispatch` only, call sites never change.
 
 export type AnalyticsEvent =

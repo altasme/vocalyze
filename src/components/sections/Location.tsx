@@ -11,7 +11,7 @@ export function Location() {
 
           <p className="mt-4 text-lg text-text-hi">{SITE.city}</p>
           <p className="mt-1 text-sm text-text-muted">
-            Full address available on request — directions coming soon.
+            Full address available on request. Directions coming soon.
           </p>
 
           <div className="mt-6 flex flex-col items-center gap-2 text-text-body">

@@ -21,7 +21,7 @@ the primary audience.]
 Vocalyze Lounge is a private entertainment lounge in Rosario, Cavite offering
 one private room (up to 8 pax) for karaoke, celebrations, and content
 creation. The Phase 1 site's job is to turn social traffic into a booking
-action (Messenger/inquiry click) — it is a marketing storefront, not a
+action (Messenger/inquiry click). It is a marketing storefront, not a
 transactional booking system yet.
 
 ## Positioning
@@ -30,14 +30,14 @@ A premium-but-playful *private* alternative to public KTV boxes: one room,
 reservation only, camera-ready lighting built in. Explicitly not corporate,
 nightclub, childish, gaming, cyberpunk, or visually aggressive (CLAUDE.md
 §1). KTV, Private Room, and Content Creation are three use-cases of the same
-single room, never separate spaces (CLAUDE.md §5 — hard constraint).
+single room, never separate spaces (CLAUDE.md §5, hard constraint).
 
 ## Operating Context
 
 - Reservation only, no walk-ins. Hours currently displayed as 24/7 but
   marked provisional pending client sign-off (CLAUDE.md §3 input #6).
 - Booking today happens off-site: every BOOK NOW CTA routes through
-  `src/config/cta.ts` to a temporary channel (Messenger by default) — there
+  `src/config/cta.ts` to a temporary channel (Messenger by default); there
   is no in-site booking flow yet (Phase 2, deferred).
 - Majority of traffic arrives on mobile from social links, so the mobile
   conversion funnel (sticky CTA bar, above-the-fold pricing) is load-bearing.
@@ -65,7 +65,7 @@ single room, never separate spaces (CLAUDE.md §5 — hard constraint).
 - Name: Vocalyze Lounge. Tagline (locked): "Where moments find their voice."
 - Color tokens, typography system (Sora/Clash Display + Caveat/Sacramento +
   Inter), and restrained dark-cinematic-neon motion language are defined in
-  CLAUDE.md §6 and implemented in `src/index.css` — treat as source of truth,
+  CLAUDE.md §6 and implemented in `src/index.css`. Treat as source of truth;
   do not invent a competing visual system.
 - Mascot exists as a physical/brand asset but artwork has not been delivered
   yet; used strategically and never as the primary focus of a section
@@ -74,7 +74,7 @@ single room, never separate spaces (CLAUDE.md §5 — hard constraint).
 ## Evidence on Hand
 
 No real venue photography, logo files, mascot artwork, or customer
-testimonials exist in this repo yet — every visual placeholder is
+testimonials exist in this repo yet. Every visual placeholder is
 intentionally and visibly marked "Photo coming soon" (`Placeholder.tsx`,
 `Lightbox.tsx`). Do not fabricate or upgrade these to look real until the
 client delivers actual assets.
@@ -83,7 +83,7 @@ client delivers actual assets.
 
 1. Single-room honesty: never imply multiple physical spaces exist.
 2. Launch integrity over polish: a misleading site is worse than an
-   unfinished one — no fake photos, reviews, or map destinations.
+   unfinished one; no fake photos, reviews, or map destinations.
 3. Mobile-first conversion: majority of traffic is a cold click from a social
    link on a phone; the booking action must be reachable within one thumb's
    reach at all times.
@@ -96,4 +96,4 @@ client delivers actual assets.
 
 No product-specific requirement beyond standard web accessibility (contrast,
 alt text, keyboard navigation, visible focus states, no color-only
-signaling) — already implemented per CLAUDE.md §14.
+signaling), already implemented per CLAUDE.md §14.

@@ -25,7 +25,7 @@ export function RealMoments() {
             REAL MOMENTS AT VOCALYZE.
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-center text-text-body">
-            No filters, no fake reviews — just what actually happens in the room.
+            No filters, no fake reviews. Just what actually happens in the room.
           </p>
         </Reveal>
 

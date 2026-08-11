@@ -1,5 +1,5 @@
 // Business facts (CLAUDE.md §1). Single-room rule (§5): KTV, Private Room, and
-// Content Creation are use-cases of the one room — never phrase these as
+// Content Creation are use-cases of the one room; never phrase these as
 // separate physical spaces.
 
 export const SITE = {
@@ -10,13 +10,13 @@ export const SITE = {
   phoneHref: 'tel:+639919141290',
   email: 'vocalyzelounge08@gmail.com',
   capacity: 8,
-  // Provisional — client to confirm 24/7 hours before launch (blocking input #6).
+  // Provisional; client to confirm 24/7 hours before launch (blocking input #6).
   hoursProvisional: true,
   hoursLabel: 'Open 24/7',
 } as const
 
 // TODO(client): official social links (blocking input #4). Placeholder hrefs
-// point at '#' until provided — do not fabricate handles.
+// point at '#' until provided; do not fabricate handles.
 export const SOCIALS = [
   { id: 'facebook', label: 'Facebook', href: '#' },
   { id: 'instagram', label: 'Instagram', href: '#' },
@@ -42,7 +42,7 @@ export const SERVICES = [
   {
     id: 'private-room',
     title: 'Private Room',
-    description: 'A private space just for you and your group — birthdays, reunions, hangouts.',
+    description: 'A private space just for you and your group: birthdays, reunions, hangouts.',
   },
   {
     id: 'content-creation',

@@ -1,5 +1,5 @@
 // Single source of truth for BOOK NOW routing (CLAUDE.md §4).
-// Phase 1 has no /book page yet — the client owes the temporary destination
+// Phase 1 has no /book page yet: the client owes the temporary destination
 // (blocking input #3). Every BOOK NOW / BOOK YOUR EXPERIENCE / BOOK THIS
 // PACKAGE / ADD PARTY MODE button must read from this constant, never a
 // scattered href.
