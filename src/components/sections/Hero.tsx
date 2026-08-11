@@ -13,7 +13,7 @@ function HeroCopy() {
       <p className="mt-5 max-w-md text-lg text-text-body [text-shadow:0_1px_12px_rgba(0,0,0,0.7)]">
         An exclusive space to sing, create, celebrate, and connect.
       </p>
-      <p className="mt-4 font-display text-sm font-semibold text-text-muted">
+      <p className="mt-4 font-display text-sm font-semibold text-text-muted [text-shadow:0_1px_10px_rgba(0,0,0,0.85)]">
         Exclusive Room · Up to {SITE.capacity} Pax · 24/7 · Reservation Only
       </p>
 
@@ -71,7 +71,7 @@ export function Hero() {
           className="pointer-events-none absolute inset-0 z-10"
           style={{
             background:
-              'linear-gradient(180deg, rgba(8,6,15,0.75) 0%, rgba(8,6,15,0.35) 30%, transparent 48%, rgba(8,6,15,0.6) 100%)',
+              'linear-gradient(180deg, rgba(8,6,15,0.85) 0%, rgba(8,6,15,0.6) 45%, rgba(8,6,15,0.35) 60%, rgba(8,6,15,0.65) 100%)',
           }}
         />
         <div className="relative z-20">
