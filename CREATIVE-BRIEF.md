@@ -18,8 +18,8 @@ General rules for every deliverable:
 
 | # | Slot | Location | Aspect ratio | Minimum size | Format | Notes |
 |---|------|----------|---------------|---------------|--------|-------|
-| 1 | Hero background, desktop/tablet | `Hero.tsx` (full-bleed) | Landscape, fills ~85vh at any viewport width | 2400×1350px (16:9) or wider source | JPG/WebP or MP4 loop + poster | Strongest room shot. Overlay darkens bottom + left for text legibility, so keep the visual interest right-of-center. |
-| 2 | Hero background, mobile crop | `Hero.tsx` (full-bleed) | Tall, fills ~90svh on a ~390px-wide screen | 1080×1920px (9:16) | JPG/WebP | Separate crop recommended rather than relying on the desktop shot to survive a portrait crop. |
+| 1 | Hero background, desktop/tablet | `Hero.tsx` (full-bleed banner, 620 to 760px tall) | Wide landscape | 1920×800px min, source larger if possible | JPG/WebP | Room fixtures weighted right-of-center; text sits left, overlay darkens left + bottom. Same pattern as lean-fit's hero. |
+| 2 | Hero background, mobile crop | `Hero.tsx` (full-bleed, full viewport height) | Tall portrait | 1080×1920px (9:16) | JPG/WebP | Separate crop, not a reused desktop shot. Text sits top, overlay darkens top + bottom. |
 | 3 | Room gallery (×6) | `VocalyzeRoom.tsx` | 1:1 square | 1600×1600px each | JPG/WebP | Suggested shot list: wide room overview, TV/karaoke wall, lounge/couch seating, spotlight stage + RGB lighting, CR/amenity detail, parking or drink chiller. |
 | 4 | Camera-Ready setup | `CameraReady.tsx` | 4:5 portrait (mobile) / 4:3 landscape (desktop), same image | 2400×2400px source, or two crops: 1600×2000 (4:5) + 2000×1500 (4:3) | JPG/WebP | RGB lighting, LED mirror, spotlight stage, tripod corner. |
 | 5 | About / origin story | `About.tsx` | 4:3 | 1600×1200px | JPG/WebP | Founders or origin-story photo per CLAUDE.md §9.9. |
