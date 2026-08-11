@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Exclude tooling/skill source (contains class-name-like strings in its own
+   pattern-matching code, e.g. "bg-clip-text") from Tailwind's automatic
+   content scan so it doesn't generate unused utilities from them. */
+@source not "../.claude/**/*";
+
 @theme {
   --color-bg-void: #08060f;
   --color-bg-navy: #0c1024;
@@ -12,6 +17,12 @@
   --color-magenta: #e040fb;
   --color-pink-neon: #ff3dce;
 
+  /* Same hue as violet-bright, lightened only enough to clear WCAG AA
+     (4.5:1) for small text set directly on bg-surface/bg-navy — violet-bright
+     itself stays exactly as specified for fills, glows, and large/bold text,
+     where it already passes. */
+  --color-violet-link: #a968ff;
+
   --color-text-hi: #f5f0ff;
   --color-text-body: #c9bede;
   --color-text-muted: #8a7ba8;
@@ -21,7 +32,6 @@
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-glow: 0 0 24px rgba(224, 64, 251, 0.4);
-  --shadow-glow-violet: 0 0 24px rgba(157, 78, 255, 0.45);
 }
 
 @layer base {

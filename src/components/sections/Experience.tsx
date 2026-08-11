@@ -18,7 +18,7 @@ export function Experience() {
           {SERVICES.map((service) => (
             <Reveal key={service.id}>
               <div className="h-full rounded-2xl border border-border-subtle bg-bg-surface p-6">
-                <h3 className="font-display text-lg font-extrabold uppercase tracking-wide text-violet-bright">
+                <h3 className="font-display text-xl font-extrabold uppercase tracking-wide text-violet-bright">
                   {service.title}
                 </h3>
                 <p className="mt-2 text-sm text-text-body">{service.description}</p>

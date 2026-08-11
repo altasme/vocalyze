@@ -14,7 +14,7 @@ export function MoreThanKaraoke() {
         <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
           {SIGNAGE_WORDS.map((word, i) => (
             <Reveal key={word} style={{ animationDelay: `${i * 75}ms` }}>
-              <div className="flex h-32 items-center justify-center rounded-2xl border border-border-subtle bg-bg-surface text-center shadow-glow">
+              <div className="flex h-32 items-center justify-center rounded-2xl border border-border-subtle bg-bg-surface text-center">
                 <span className="font-display text-xl font-extrabold uppercase tracking-wide text-violet-bright">
                   {word}
                 </span>

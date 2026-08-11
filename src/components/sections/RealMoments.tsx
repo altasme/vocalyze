@@ -41,7 +41,7 @@ export function RealMoments() {
                 aria-label={`View photo: ${label}`}
                 className="flex aspect-square w-full flex-col items-center justify-center gap-1 rounded-2xl border border-dashed border-border-subtle bg-bg-surface/60 p-3 text-center transition-colors hover:border-violet-bright"
               >
-                <span className="font-display text-[10px] uppercase tracking-[0.2em] text-text-muted">
+                <span className="font-display text-xs uppercase tracking-[0.2em] text-text-muted">
                   Coming soon
                 </span>
                 <span className="text-xs text-text-body">{label}</span>

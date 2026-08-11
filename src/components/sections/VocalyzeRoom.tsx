@@ -10,12 +10,10 @@ export function VocalyzeRoom() {
     <section id="room" className="bg-bg-void px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal>
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-magenta">
-            Up to {SITE.capacity} pax
-          </p>
-          <h2 className="mt-3 text-[clamp(1.75rem,5vw,2.5rem)] font-extrabold">
+          <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-extrabold">
             YOUR OWN PRIVATE SPACE.
           </h2>
+          <p className="mt-2 text-text-body">Up to {SITE.capacity} guests, all to yourselves.</p>
         </Reveal>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">

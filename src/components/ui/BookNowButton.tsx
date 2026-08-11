@@ -16,9 +16,11 @@ export function BookNowButton({
 }: BookNowButtonProps) {
   const base =
     'inline-flex items-center justify-center rounded-full px-6 py-3 font-display text-sm font-bold uppercase tracking-wide transition-all duration-200 min-h-[44px] focus-visible:outline-2'
+  // text-hi on violet-bright is only 3.8:1 (fails WCAG AA); bg-void reads
+  // 4.76:1 on the same fill and keeps violet-bright exactly as specified.
   const styles =
     variant === 'primary'
-      ? 'bg-violet-bright text-text-hi shadow-glow hover:brightness-110 active:brightness-95'
+      ? 'bg-violet-bright text-bg-void shadow-glow hover:brightness-110 active:brightness-95'
       : 'border border-border-subtle bg-transparent text-text-hi hover:border-violet-bright hover:text-violet-bright'
 
   const target = BOOK_NOW.mode === 'external' || BOOK_NOW.mode === 'messenger' ? '_blank' : undefined

@@ -15,7 +15,7 @@ export function Rates() {
         </Reveal>
 
         <Reveal className="mt-10">
-          <div className="rounded-2xl border border-violet-bright/40 bg-bg-surface p-6 shadow-glow">
+          <div className="rounded-2xl border border-violet-bright/40 bg-bg-surface p-6">
             <p className="font-display text-sm font-bold uppercase tracking-wide text-text-muted">
               Flexible base
             </p>
@@ -34,7 +34,7 @@ export function Rates() {
             <Reveal key={pkg.id}>
               <div className="relative flex h-full flex-col rounded-2xl border border-border-subtle bg-bg-surface p-6">
                 {pkg.popular && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-magenta px-3 py-1 font-display text-[10px] font-bold uppercase tracking-wide text-text-hi">
+                  <span className="absolute -top-3 left-6 rounded-full bg-magenta px-3 py-1 font-display text-xs font-bold uppercase tracking-wide text-text-hi">
                     Popular
                   </span>
                 )}
@@ -62,7 +62,7 @@ export function Rates() {
           <div className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-border-subtle bg-bg-surface p-6 sm:flex-row sm:items-center">
             <div>
               <p className="font-display text-sm font-bold uppercase tracking-wide text-text-hi">
-                {PARTY_MODE_ADDON.label} <span className="text-violet-bright">+₱{PARTY_MODE_ADDON.price}</span>
+                {PARTY_MODE_ADDON.label} <span className="text-violet-link">+₱{PARTY_MODE_ADDON.price}</span>
               </p>
               <p className="text-sm text-text-muted">{PARTY_MODE_ADDON.description}</p>
             </div>
@@ -75,7 +75,7 @@ export function Rates() {
           <a
             href="#location"
             onClick={() => trackEvent('cta_view_rates_click', { source: 'custom_package' })}
-            className="mt-2 inline-block font-display text-sm font-bold uppercase tracking-wide text-violet-bright underline-offset-4 hover:underline"
+            className="mt-2 inline-block font-display text-sm font-bold uppercase tracking-wide text-violet-link underline-offset-4 hover:underline"
           >
             Inquire About a Custom Package
           </a>
@@ -83,8 +83,11 @@ export function Rates() {
 
         <Reveal className="mt-10 rounded-2xl border border-border-subtle bg-bg-surface/60 p-6">
           <p className="font-display text-xs font-bold uppercase tracking-wide text-text-muted">
-            Reservation policy {RESERVATION_POLICY_PROVISIONAL && '(provisional — pending client sign-off)'}
+            Reservation policy
           </p>
+          {RESERVATION_POLICY_PROVISIONAL && (
+            <p className="mt-1 text-xs text-text-muted">Provisional — pending client sign-off.</p>
+          )}
           <ul className="mt-3 space-y-1 text-sm text-text-body">
             {RESERVATION_POLICY.map((line) => (
               <li key={line}>· {line}</li>

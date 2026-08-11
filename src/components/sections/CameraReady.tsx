@@ -13,10 +13,7 @@ export function CameraReady() {
         </Reveal>
 
         <Reveal>
-          <p className="font-display text-xs font-bold uppercase tracking-[0.3em] text-magenta">
-            Content Creation
-          </p>
-          <h2 className="mt-3 text-[clamp(1.75rem,5vw,2.5rem)] font-extrabold">
+          <h2 className="text-[clamp(1.75rem,5vw,2.5rem)] font-extrabold">
             LOOK GOOD. SOUND GOOD. BE YOU.
           </h2>
           <p className="mt-4 max-w-md text-text-body">
