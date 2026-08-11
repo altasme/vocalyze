@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-border-subtle bg-bg-navy pb-24 pt-12 md:pb-12">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 md:flex-row md:justify-between">
         <div>
-          <img src={logoWordmark} alt="Vocalyze Lounge" className="h-10 w-auto" />
+          <img src={logoWordmark} alt="Vocalyze Lounge" className="h-12 w-auto" />
           <p className="mt-2 font-script text-2xl text-pink-neon">{SITE.tagline}</p>
         </div>
 

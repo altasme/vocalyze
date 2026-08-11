@@ -19,7 +19,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border-subtle bg-bg-void/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         <a href="#home" onClick={() => setNavOpen(false)}>
-          <img src={logoWordmark} alt="Vocalyze Lounge" className="h-10 w-auto sm:h-12" />
+          <img src={logoWordmark} alt="Vocalyze Lounge" className="h-12 w-auto sm:h-14" />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
