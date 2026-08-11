@@ -1,15 +1,32 @@
 import { Placeholder } from '@/components/ui/Placeholder'
 import { Reveal } from '@/components/ui/Reveal'
 import { BookNowButton } from '@/components/ui/BookNowButton'
+import { AutoplayVideo } from '@/components/ui/AutoplayVideo'
 
 const HIGHLIGHTS = ['Signature RGB lighting', 'Color-changing LED mirror', 'Spotlight stage', 'Pro tripod', 'Sunglasses props']
+
+// TODO(client): drop the spotlight-sweep clip into public/media/camera-ready.mp4
+// (plus a still frame at public/media/camera-ready-poster.jpg) once delivered,
+// then set both paths below. Falls back to the placeholder until then.
+const CAMERA_READY_VIDEO = {
+  src: null as string | null,
+  poster: null as string | null,
+}
 
 export function CameraReady() {
   return (
     <section className="bg-bg-navy px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
         <Reveal>
-          <Placeholder label="Camera-ready lighting / content creation setup" aspect="aspect-[4/5] md:aspect-[4/3]" />
+          {CAMERA_READY_VIDEO.src ? (
+            <AutoplayVideo
+              className="aspect-[4/5] w-full rounded-2xl object-cover md:aspect-[4/3]"
+              src={CAMERA_READY_VIDEO.src}
+              poster={CAMERA_READY_VIDEO.poster ?? undefined}
+            />
+          ) : (
+            <Placeholder label="Camera-ready lighting / content creation setup" aspect="aspect-[4/5] md:aspect-[4/3]" />
+          )}
         </Reveal>
 
         <Reveal>
