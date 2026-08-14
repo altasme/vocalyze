@@ -54,8 +54,28 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-8 max-w-6xl border-t border-border-subtle px-4 pt-6 text-xs text-text-muted sm:px-6">
-        © 2026 Vocalyze Lounge. All rights reserved.
+      <div className="mx-auto mt-8 flex max-w-6xl flex-col gap-2 border-t border-border-subtle px-4 pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>© 2026 Vocalyze Lounge. All rights reserved.</p>
+        <p>
+          Website & Hosting by{' '}
+          <a
+            href="https://altasme.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-violet-bright"
+          >
+            ALTAVENTURES
+          </a>
+          {' | '}
+          <a
+            href="https://altasme.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-violet-bright"
+          >
+            Get your flagship website FREE
+          </a>
+        </p>
       </div>
     </footer>
   )
